@@ -4,17 +4,22 @@
 #
 Name     : R-fansi
 Version  : 0.4.0
-Release  : 8
+Release  : 9
 URL      : https://cran.r-project.org/src/contrib/fansi_0.4.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/fansi_0.4.0.tar.gz
 Summary  : ANSI Control Sequence Aware String Functions
 Group    : Development/Tools
 License  : GPL-2.0+
-Requires: R-fansi-lib
+Requires: R-fansi-lib = %{version}-%{release}
+Requires: R-markdown
+BuildRequires : R-markdown
 BuildRequires : buildreq-R
 
 %description
-the effects of ANSI text formatting control sequences.
+# fansi - ANSI Control Sequence Aware String Functions
+[![](https://travis-ci.org/brodieG/fansi.svg?branch=master)](https://travis-ci.org/brodieG/fansi)
+[![](https://codecov.io/github/brodieG/fansi/coverage.svg?branch=master)](https://codecov.io/github/brodieG/fansi?branch=master)
+[![](http://www.r-pkg.org/badges/version/fansi)](https://cran.r-project.org/package=fansi)
 
 %package lib
 Summary: lib components for the R-fansi package.
@@ -32,11 +37,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1538746786
+export SOURCE_DATE_EPOCH=1552757942
 
 %install
+export SOURCE_DATE_EPOCH=1552757942
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1538746786
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -71,8 +76,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library fansi|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  fansi || :
 
 
 %files
@@ -102,7 +106,33 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/fansi/help/paths.rds
 /usr/lib64/R/library/fansi/html/00Index.html
 /usr/lib64/R/library/fansi/html/R.css
-/usr/lib64/R/library/fansi/libs/symbols.rds
+/usr/lib64/R/library/fansi/tests/run.R
+/usr/lib64/R/library/fansi/tests/unitizer/_pre/funs.R
+/usr/lib64/R/library/fansi/tests/unitizer/_pre/lorem.R
+/usr/lib64/R/library/fansi/tests/unitizer/_pre/lorem.data/lorem.cn.phrases.RDS
+/usr/lib64/R/library/fansi/tests/unitizer/_pre/strings.R
+/usr/lib64/R/library/fansi/tests/unitizer/has.R
+/usr/lib64/R/library/fansi/tests/unitizer/has.unitizer/data.rds
+/usr/lib64/R/library/fansi/tests/unitizer/misc.R
+/usr/lib64/R/library/fansi/tests/unitizer/misc.unitizer/data.rds
+/usr/lib64/R/library/fansi/tests/unitizer/nchar.R
+/usr/lib64/R/library/fansi/tests/unitizer/nchar.unitizer/data.rds
+/usr/lib64/R/library/fansi/tests/unitizer/overflow.R
+/usr/lib64/R/library/fansi/tests/unitizer/overflow.unitizer/data.rds
+/usr/lib64/R/library/fansi/tests/unitizer/strip.R
+/usr/lib64/R/library/fansi/tests/unitizer/strip.unitizer/data.rds
+/usr/lib64/R/library/fansi/tests/unitizer/strsplit.R
+/usr/lib64/R/library/fansi/tests/unitizer/strsplit.unitizer/data.rds
+/usr/lib64/R/library/fansi/tests/unitizer/substr.R
+/usr/lib64/R/library/fansi/tests/unitizer/substr.unitizer/data.rds
+/usr/lib64/R/library/fansi/tests/unitizer/tabs.R
+/usr/lib64/R/library/fansi/tests/unitizer/tabs.unitizer/data.rds
+/usr/lib64/R/library/fansi/tests/unitizer/tohtml.R
+/usr/lib64/R/library/fansi/tests/unitizer/tohtml.unitizer/data.rds
+/usr/lib64/R/library/fansi/tests/unitizer/utf8.R
+/usr/lib64/R/library/fansi/tests/unitizer/utf8.unitizer/data.rds
+/usr/lib64/R/library/fansi/tests/unitizer/wrap.R
+/usr/lib64/R/library/fansi/tests/unitizer/wrap.unitizer/data.rds
 
 %files lib
 %defattr(-,root,root,-)
