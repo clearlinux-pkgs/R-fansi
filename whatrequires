@@ -1,4 +1,5 @@
 # This file contains recursive sources that require this package
+R-cli
 R-pillar
 R-pkgdown
 R-tibble
