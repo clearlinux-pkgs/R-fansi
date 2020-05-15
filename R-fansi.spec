@@ -4,7 +4,7 @@
 #
 Name     : R-fansi
 Version  : 0.4.1
-Release  : 21
+Release  : 22
 URL      : https://cran.r-project.org/src/contrib/fansi_0.4.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/fansi_0.4.1.tar.gz
 Summary  : ANSI Control Sequence Aware String Functions
@@ -14,10 +14,7 @@ Requires: R-fansi-lib = %{version}-%{release}
 BuildRequires : buildreq-R
 
 %description
-library(rmarkdown)
--->
-fansi - ANSI Control Sequence Aware String Functions
-====================================================
+the effects of ANSI text formatting control sequences.
 
 %package lib
 Summary: lib components for the R-fansi package.
@@ -29,21 +26,22 @@ lib components for the R-fansi package.
 
 %prep
 %setup -q -c -n fansi
+cd %{_builddir}/fansi
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1578693720
+export SOURCE_DATE_EPOCH=1589508484
 
 %install
-export SOURCE_DATE_EPOCH=1578693720
+export SOURCE_DATE_EPOCH=1589508484
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
