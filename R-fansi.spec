@@ -4,7 +4,7 @@
 #
 Name     : R-fansi
 Version  : 0.4.2
-Release  : 28
+Release  : 29
 URL      : https://cran.r-project.org/src/contrib/fansi_0.4.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/fansi_0.4.2.tar.gz
 Summary  : ANSI Control Sequence Aware String Functions
@@ -33,10 +33,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1610732700
+export SOURCE_DATE_EPOCH=1619367881
 
 %install
-export SOURCE_DATE_EPOCH=1610732700
+export SOURCE_DATE_EPOCH=1619367881
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -134,3 +134,4 @@ R CMD check --no-manual --no-examples --no-codoc fansi || :
 %defattr(-,root,root,-)
 /usr/lib64/R/library/fansi/libs/fansi.so
 /usr/lib64/R/library/fansi/libs/fansi.so.avx2
+/usr/lib64/R/library/fansi/libs/fansi.so.avx512
