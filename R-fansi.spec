@@ -4,7 +4,7 @@
 #
 Name     : R-fansi
 Version  : 1.0.4
-Release  : 49
+Release  : 50
 URL      : https://cran.r-project.org/src/contrib/fansi_1.0.4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/fansi_1.0.4.tar.gz
 Summary  : ANSI Control Sequence Aware String Functions
